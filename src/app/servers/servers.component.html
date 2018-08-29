@@ -13,4 +13,11 @@
     </ng-template> -->
 <p *ngIf="serverCreated">Server was created, server name is {{serverName}}</p>
 
-<app-server *ngFor="let server of servers"> </app-server>
+<!-- <app-server *ngFor="let server of servers"> </app-server> -->
+<br>
+
+<button class="btn btn-primary" (click)="onButtonClick()">Display Details</button>
+<p *ngIf="toggleParagraph">Secret Password="tuna"</p>
+<p *ngFor="let timestamp of timestamps; let i = index" [ngStyle]="{backgroundColor: getTimeStampColor(timestamp,i)}" [ngClass]="{whiteText: i>3}"> 
+    {{ timestamp }}
+</p>

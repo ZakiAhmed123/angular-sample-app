@@ -13,6 +13,14 @@ export class ServersComponent implements OnInit {
   serverName = 'TestServer';
   serverCreated = false;
   servers =['TestServer', 'TestServer2'];
+  toggleParagraph = true;
+  timestamps = [];
+
+  onButtonClick() {
+    this.toggleParagraph = !this.toggleParagraph;
+    this.timestamps.push(new Date());
+    console.log(this.timestamps);
+  }
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true
@@ -31,6 +39,12 @@ export class ServersComponent implements OnInit {
 
   onUpdateServerName() {
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  getTimeStampColor(timestamp,i) {
+    if (i > 3) {
+      return "dodgerBlue";
+    }
   }
 
 }
